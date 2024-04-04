@@ -117,6 +117,24 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<!-- SPRING CLOUD CONTRACT -->
+			<plugin>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-contract-maven-plugin</artifactId>
+				<version>${spring-cloud-contract.version}</version>
+				<extensions>true</extensions>
+				<configuration>
+					<packageWithBaseClasses>com.example.template</packageWithBaseClasses>
+					<baseClassMappings>
+						<baseClassMapping>
+							<contractPackageRegex>.*com.*</contractPackageRegex>
+							<baseClassFQN>com.example.template.RestBase</baseClassFQN>
+						</baseClassMapping>
+					</baseClassMappings>
+					<testMode>EXPLICIT</testMode>
+				</configuration>
+			</plugin>
+			<!-- SPRING CLOUD CONTRACT -->
 		</plugins>
 	</build>
 
